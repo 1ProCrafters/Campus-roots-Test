@@ -14,6 +14,15 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
+        val fragmentTransaction: FragmentTransaction = this.supportFragmentManager.beginTransaction()
+        fragmentTransaction.setCustomAnimations(R.anim.show_from_bottom, R.anim.slide_out_bottom)
+        fragmentTransaction.replace(
+            R.id.content,
+            HomeFragment() // replace with your fragment
+        )
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commitAllowingStateLoss()
+
     }
 
 }
